@@ -16,6 +16,8 @@ type Downloader struct {
 	ImagesOnly   *widget.Check
 	ImagesFormat *widget.Radio
 	OutputFolder *widget.Entry
+	IssuesRange  *widget.Entry
+	Debug        *widget.Check
 }
 
 func (d *Downloader) ClearURLField() {
@@ -32,6 +34,7 @@ func (d *Downloader) ClearOutputFolderField() {
 
 func (d *Downloader) Submit() {
 	opts := &config.Options{
+		Debug:        d.Debug.Checked,
 		All:          d.AllChapters.Checked,
 		Last:         d.LastChapter.Checked,
 		Url:          d.URL.Text,
@@ -40,6 +43,7 @@ func (d *Downloader) Submit() {
 		ImagesFormat: d.ImagesFormat.Selected,
 		ImagesOnly:   d.ImagesOnly.Checked,
 		OutputFolder: d.OutputFolder.Text,
+		IssuesRange:  d.IssuesRange.Text,
 	}
 
 	downloader.GuiRun(opts)

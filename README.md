@@ -23,17 +23,17 @@
 
 Download the latest release:
 
-- [Linux](https://github.com/Girbons/comics-downloader/releases/download/v0.25.0/comics-downloader)
-- [Mac OSX](https://github.com/Girbons/comics-downloader/releases/download/v0.25.0/comics-downloader-osx)
-- [Windows](https://github.com/Girbons/comics-downloader/releases/download/v0.25.0/comics-downloader.exe)
-- [Linux ARM](https://github.com/Girbons/comics-downloader/releases/download/v0.25.0/comics-downloader-linux-arm)
-- [Linux ARM64](https://github.com/Girbons/comics-downloader/releases/download/v0.25.0/comics-downloader-linux-arm64)
+- [Linux](https://github.com/Girbons/comics-downloader/releases/download/v0.27.0/comics-downloader)
+- [Mac OSX](https://github.com/Girbons/comics-downloader/releases/download/v0.27.0/comics-downloader-osx)
+- [Windows](https://github.com/Girbons/comics-downloader/releases/download/v0.27.0/comics-downloader.exe)
+- [Linux ARM](https://github.com/Girbons/comics-downloader/releases/download/v0.27.0/comics-downloader-linux-arm)
+- [Linux ARM64](https://github.com/Girbons/comics-downloader/releases/download/v0.27.0/comics-downloader-linux-arm64)
 
 Download the latest GUI release:
 
-- [Linux](https://github.com/Girbons/comics-downloader/releases/download/v0.25.0/comics-downloader-gui)
-- [Mac OSX](https://github.com/Girbons/comics-downloader/releases/download/v0.25.0/comics-downloader-gui-osx)
-- [Windows](https://github.com/Girbons/comics-downloader/releases/download/v0.25.0/comics-downloader-gui-windows.exe)
+- [Linux](https://github.com/Girbons/comics-downloader/releases/download/v0.27.0/comics-downloader-gui)
+- [Mac OSX](https://github.com/Girbons/comics-downloader/releases/download/v0.27.0/comics-downloader-gui-osx)
+- [Windows](https://github.com/Girbons/comics-downloader/releases/download/v0.27.0/comics-downloader-gui-windows.exe)
 
 Put the script under a folder.
 
@@ -51,6 +51,8 @@ Usage:
         Set the country to retrieve a manga, Used by MangaDex which uses ISO 3166-1 codes
   -daemon
         Run the download as daemon
+  -debug
+    	Shows Debug log
   -format string
         Comic format output, supported formats are pdf,epub,cbr,cbz (default "pdf")
   -images-format
@@ -61,6 +63,8 @@ Usage:
         Download the last Comic issue
   -output string
         Folder where the comics will be saved
+  -range
+        Range of issues to download, example 3-9
   -timeout int
         Timeout (seconds), specifies how often the downloader runs (default 600)
   -url string
@@ -85,14 +89,6 @@ Usage:
 If you'd like to track your favourite mangas you can use this bash [script](https://gist.github.com/nestukh/5397b836c8e5f34f6feb4ec4efe6b86a).
 
 ### Multiple URLs
-
-Without `url` parameter:
-
-```bash
-./comics-downloader url1 url2 url3
-```
-
-With `url` parameter:
 
 ```bash
 ./comics-downloader -url=url,url2,url3
@@ -123,6 +119,16 @@ example:
 
 ```bash
 ./comics-downloader -url=[your url] -all
+```
+
+### Download the range of issues
+
+Provide the comic url and use the `-range` flag. The url provided can be any issue of the comic, or the main comic page url.
+
+example:
+
+```bash
+./comics-downloader -url=[your url] -range=[start-end]
 ```
 
 ### Download the last comic issue

@@ -1,3 +1,35 @@
+[Changes][v0.27.0]
+<a name="v0.27.0"></a>
+# [0.27.0 (v0.27.0)](https://github.com/Girbons/comics-downloader/releases/tag/v0.27.0) - 21 Nov 2020
+# What's new
+
+* introduce debug flag.
+
+[Changes][v0.26.2]
+<a name="v0.26.2"></a>
+# [0.26.2 (v0.26.2)](https://github.com/Girbons/comics-downloader/releases/tag/v0.26.2) - 2 Nov 2020
+# Changes
+
+* range can be used without the `all` flag.
+
+[Changes][v0.26.1]
+<a name="v0.26.1"></a>
+# [0.26.1 (v0.26.1)](https://github.com/Girbons/comics-downloader/releases/tag/v0.26.1) - 30 Oct 2020
+# What's new
+
+* Added range in GUI #74
+
+# Changes
+
+* url parameter is now required
+
+[Changes][v0.26.0]
+<a name="v0.26.0"></a>
+# [0.26.0 (v0.26.0)](https://github.com/Girbons/comics-downloader/releases/tag/v0.26.0) - 26 Oct 2020
+# What's new
+
+* Introduced range flag - (thanks @ivanlemeshev)
+
 [Changes][v0.25.0]
 <a name="v0.25.0"></a>
 # [0.25.0 (v0.25.0)](https://github.com/Girbons/comics-downloader/releases/tag/v0.25.0) - 23 Oct 2020

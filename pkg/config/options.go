@@ -1,6 +1,9 @@
 package config
 
+import "github.com/Girbons/comics-downloader/internal/logger"
+
 type Options struct {
+	Debug        bool
 	All          bool
 	Last         bool
 	ImagesOnly   bool
@@ -11,5 +14,8 @@ type Options struct {
 	OutputFolder string
 	Url          string
 	Source       string
+	IssuesRange  string
 	Timeout      int
+
+	Logger *logger.Logger
 }

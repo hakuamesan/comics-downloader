@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/Girbons/comics-downloader/cmd/app"
 	"github.com/Girbons/comics-downloader/internal/version"
@@ -12,6 +11,8 @@ import (
 )
 
 var (
+	// shows debug log
+	debug bool
 	// download mode options
 	all  bool
 	last bool
@@ -31,9 +32,12 @@ var (
 	timeout int
 	// app version
 	versionFlag bool
+	// range of issues to download
+	IssuesRange string
 )
 
 func init() {
+	flag.BoolVar(&debug, "debug", false, "Shows Debug log")
 	flag.BoolVar(&all, "all", false, "Download all issues of the Comic or Comics")
 	flag.BoolVar(&daemon, "daemon", false, "Run the download as daemon")
 	flag.BoolVar(&imagesOnly, "images-only", false, "Download comic/manga images")
@@ -45,6 +49,7 @@ func init() {
 	flag.StringVar(&imagesFormat, "images-format", "jpg", "To use with `images-only` flag, choose the image format, available png,jpeg,img")
 	flag.StringVar(&url, "url", "", "Comic URL or Comic URLS by separating each site with a comma without the use of spaces")
 	flag.StringVar(&outputFolder, "output", "", "Folder where the comics will be saved")
+	flag.StringVar(&IssuesRange, "range", "", "Range of issues to download, example 3-9")
 
 	flag.IntVar(&timeout, "timeout", 600, "Timeout (seconds), specifies how often the downloader runs")
 }
@@ -57,18 +62,8 @@ func main() {
 		os.Exit(0)
 	}
 
-	// is this the best way?
-	if url == "" {
-		for _, v := range flag.Args() {
-			if !strings.HasPrefix(v, "-") || !strings.HasPrefix(v, "--") {
-				if strings.HasPrefix(v, "http") || strings.HasPrefix(v, "https") {
-					url = url + fmt.Sprintf("%s,", v)
-				}
-			}
-		}
-	}
-
 	options := &config.Options{
+		Debug:        debug,
 		All:          all,
 		Last:         last,
 		Country:      country,
@@ -78,6 +73,8 @@ func main() {
 		Format:       format,
 		Daemon:       daemon,
 		Timeout:      timeout,
+		OutputFolder: outputFolder,
+		IssuesRange:  IssuesRange,
 	}
 
 	app.Run(options)
